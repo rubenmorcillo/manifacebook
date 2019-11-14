@@ -2,6 +2,7 @@
 
 
 namespace AppBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,9 +12,37 @@ use Doctrine\ORM\Mapping as ORM;
 class City
 {
 
+
     /**
      * @ORM\Column(type="string")
+     * @var User[]
      */
-    private $name;
+    private $personas;
+
+
+
+    /**
+     * @param mixed $personas
+     * @return City
+     */
+    public function setPersonas($personas)
+    {
+        $this->personas = $personas;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPersonas()
+    {
+        return $this->personas;
+    }
+
+
+    public function __construct(array $personas)
+    {
+        $this->personas = $personas;
+    }
 
 }
