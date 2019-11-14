@@ -47,6 +47,13 @@ class ColectivoLocal
      */
     private $miembros;
 
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Muro")
+     * @ORM\JoinColumn(name="muro_id", referencedColumnName="id", nullable=false)
+     * @var Muro
+     */
+    private $muro;
+
 
     public function __construct()
     {
@@ -115,8 +122,22 @@ class ColectivoLocal
         return $this;
     }
 
+    /**
+     * @return Muro
+     */
+    public function getMuro()
+    {
+        return $this->muro;
+    }
 
-
-
+    /**
+     * @param Muro $muro
+     * @return ColectivoLocal
+     */
+    public function setMuro($muro)
+    {
+        $this->muro = $muro;
+        return $this;
+    }
 
 }
