@@ -29,9 +29,10 @@ class CityController extends Controller
 
                 $em->persist($city);
                 $em->flush();
-                return $this->redirectToRoute('homepage');
+                //return $this->redirectToRoute('homepage');
+                $this->addFlash('exito', 'La ciudad ha sido introducida correctamente');
             }catch (\Exception $e){
-                $this->addFlash('error', 'Ha ocurrido un error al guardar los cambios');
+                $this->addFlash('error', 'La ciudad introducida ya existe');
             }
             return $this->redirectToRoute('homepage');
         }
