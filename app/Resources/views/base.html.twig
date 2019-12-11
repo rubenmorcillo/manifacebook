@@ -11,10 +11,18 @@
 
     </head>
     <body>
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ path('homepage') }}">INICIO</a>
+            <a class="navbar-brand" href="{{ path('listar_user') }}">LISTAR</a>
+            <a class="navbar-brand" href="{{ path('registrarCiudad') }}"><i class="fas fa-city"></i> REGISTRAR CIUDAD</a>
+        </div>
+    </nav>
         {% block body %}
             <script src="{{ asset('jquery/jquery-3.4.1.slim.min.js') }}"></script>
             <script src="{{ asset('bootstrap-4.4.0-dist/js/bootstrap.min.js') }}"></script>
         {% endblock %}
         {% block javascripts %}{% endblock %}
+        {% block content %}{% endblock %}
     </body>
 </html>

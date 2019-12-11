@@ -12,10 +12,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class City
 {
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\Column(type="integer")
      * @var int
      */
