@@ -1,13 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>gente</h1>
+    <h1>Listado de Usuarios</h1>
 
-    <ul>
+    <table border="1">
+        <tr>
+            <td>NickName</td>
+            <td>Email</td>
+            <td>Contraseña</td>
+            <td>Id</td>
+        </tr>
         {% for user in usuarios %}
-         <li> {{ user.nickname }}</li>
+        <tr>
+            <td>
+                {{ user.nickname }}
+            </td>
+            <td>
+                {{ user.email }}
+            </td>
+            <td>
+                {{ user.password }}
+            </td>
+            <td>
+                {{ user.id }}
+            </td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
+
 {% endblock %}
 
 {% block stylesheets %}
