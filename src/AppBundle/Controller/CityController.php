@@ -29,22 +29,17 @@ class CityController extends Controller
 
                 $em->persist($city);
                 $em->flush();
-
-            }catch (Exception $e){
-               $error = true;
-            }finally{
-                return $this->render('default/formularioCity.html.twig', [
-                    'form'=>$formulario->createView(),
-                    'error' => $error
-                ]);
+                return $this->redirectToRoute('homepage');
+            }catch (\Exception $e){
+                $this->addFlash('error', 'Ha ocurrido un error al guardar los cambios');
             }
-
-        }else{
-            return $this->render('default/formularioCity.html.twig', [
-                'form'=>$formulario->createView(),
-                'error' => $error = false
-            ]);
+            return $this->redirectToRoute('homepage');
         }
+        return $this->render('default/formularioCity.html.twig', [
+            'form'=>$formulario->createView()
+
+        ]);
+
 
 
     }
