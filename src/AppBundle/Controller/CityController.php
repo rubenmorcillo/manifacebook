@@ -22,6 +22,7 @@ class CityController extends Controller
         $formulario = $this->createForm(CityType::class,$city);
         $formulario->handleRequest($request);
         // replace this example code with whatever you need
+        $error = false;
         if($formulario->isSubmitted() and $formulario->isValid()){
             try {
                 $em= $this->getDoctrine()->getManager();//esto es la clase que se encarga de hacer cosas de base de datos
@@ -30,16 +31,18 @@ class CityController extends Controller
                 $em->flush();
 
             }catch (Exception $e){
-
+               $error = true;
             }finally{
-                return $this->render('default/portada.html.twig', [
-                    'form'=>$formulario->createView()
+                return $this->render('default/formularioCity.html.twig', [
+                    'form'=>$formulario->createView(),
+                    'error' => $error
                 ]);
             }
 
         }else{
             return $this->render('default/formularioCity.html.twig', [
-                'form'=>$formulario->createView()
+                'form'=>$formulario->createView(),
+                'error' => $error = false
             ]);
         }
 
