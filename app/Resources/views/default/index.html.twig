@@ -26,8 +26,27 @@
             </td>
         </tr>
         {% endfor %}
+
     </table>
 
+<h1>Listado de Ciudades</h1>
+
+    <table border="1">
+        <tr>
+            <td>Código Postal</td>
+            <td>Densidad Población</td>
+        </tr>
+        {% for ciudad in ciudades %}
+            <tr>
+                <td>
+                    {{ ciudad.id }}
+                </td>
+                <td>
+                    {{ ciudad.personas }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
 
 {% block stylesheets %}
