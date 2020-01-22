@@ -1,0 +1,10 @@
+AppBundle\Entity\City:
+  ciudad_{1..4}:
+    id: '<current()>'
+    personas: media
+AppBundle\Entity\User:
+  admin:
+    password: admin
+    nickname: administrador
+    email: admin@admin.com
+    ciudad: '@ciudad_<numberBetween(0,2)>'
