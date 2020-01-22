@@ -1,7 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Listado de Usuarios</h1>
+    <style>
+        *{
+
+        }
+        .listados{
+            display: flex;
+            justify-content: space-around;
+        }
+        tr {
+            transition: 0.5s;
+        }
+        tr:hover{
+            color: white;
+            background-color: #343A40;
+        }
+        td{
+            padding: 1em;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+    <div class="listados">
+
+    <div>
+    <h2>Listado de Usuarios</h2>
 
     <table border="1">
         <tr>
@@ -28,8 +53,9 @@
         {% endfor %}
 
     </table>
-
-<h1>Listado de Ciudades</h1>
+    </div>
+        <div>
+<h2>Listado de Ciudades</h2>
 
     <table border="1">
         <tr>
@@ -47,8 +73,9 @@
             </tr>
         {% endfor %}
     </table>
+        </div>
 {% endblock %}
 
 {% block stylesheets %}
-
+    </div>
 {% endblock %}
