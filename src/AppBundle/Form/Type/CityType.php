@@ -15,10 +15,10 @@ public function buildForm(FormBuilderInterface $builder, array $options)
 {
     $builder
         ->add('id',null,[
-            'label'=>'Nombre ciudad'
+            'label'=>'Código Postal'
             ])
         ->add('personas',null,[
-            'label'=>'Población'
+            'label'=>'Densidad de población (alta | media | baja)'
         ]);
 }
 public function configureOptions(OptionsResolver $resolver)

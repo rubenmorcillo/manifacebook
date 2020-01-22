@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-<div>
+    <style>
+
+        .formulario{
+            width: 60%;
+            border: 1px solid black;
+            margin: 1em auto;
+            padding: 1em;
+        }
+        .formulario input{
+            margin: 1em;
+        }
+    </style>
+<div class="formulario">
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
 
     <a class="btn-outline-danger" href="#">Volver</a>
-    <input class="btn-primary" type="submit"><i class="fas fa-check"></i>Guardar cambio</input>
+    <input class="btn-primary" type="submit"><i class="fas fa-check"></i>Guardar cambios</input>
     {{ form_end(form) }}
 </div>
 {% endblock %}
