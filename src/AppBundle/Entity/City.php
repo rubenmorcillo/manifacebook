@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -24,6 +25,7 @@ class City
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\Column(type="integer")
+     * @Assert\Length(min="5", max="5",minMessage="El código postal debe tener 5 dígitos", maxMessage="El código postal debe tener 5 dígitos")
      * @var int
      */
     private $id;
@@ -91,5 +93,11 @@ class City
         $this->colectivos = $colectivos;
         return $this;
     }
+
+    public function __toString()
+    {
+        return 'id: '.$this->getId();
+    }
+
 
 }
