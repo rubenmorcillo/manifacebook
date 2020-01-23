@@ -13,6 +13,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CityController extends Controller
 {
+
+    /**
+     * @Route("/ciudad/{id}", name="una_ciudad")
+     */
+    public function ciudadAction(City $city)
+    {
+        return $this->render('default/city.html.twig', [ 'ciudad' => $city]);
+    }
+
     /**
      * @Route("/ciudad",name="registrarCiudad")
      */
@@ -42,6 +51,8 @@ class CityController extends Controller
         ]);
 
 
-
     }
+
+
+
 }
